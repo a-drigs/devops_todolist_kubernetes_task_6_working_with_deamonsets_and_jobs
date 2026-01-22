@@ -2,7 +2,7 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: health-check-4mins
-  namespace: todoapp
+  namespace: mateapp
 spec:
   schedule: "*/4 * * * *"
   concurrencyPolicy: Allow
@@ -21,4 +21,11 @@ spec:
             args:
               - |
                curl -s http://todoapp.todoapp.svc.cluster.local:80/api/health
+            resources:
+              requests:
+                cpu: "100m"
+                memory: "128Mi"
+              limits:
+                cpu: "200m"
+                memory: "256Mi"
           

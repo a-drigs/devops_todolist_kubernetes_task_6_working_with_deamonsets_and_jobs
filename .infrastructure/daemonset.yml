@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: curl-with-busybox
-  namespace: todoapp
+  namespace: mateapp
   labels:
     app: busybox
 spec:
